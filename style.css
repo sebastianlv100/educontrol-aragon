@@ -93,3 +93,37 @@ td input[type="number"] { width: 90px; margin: 0; padding: 6px 8px; }
 .mensaje.ok { color: var(--ok); }
 .mensaje.mal { color: var(--alerta); }
 .chico { background: var(--alerta); padding: 6px 12px; font-size: 0.9rem; }
+
+/* ===== Página de inicio (presentación de la escuela) ===== */
+.enlaces a { color: var(--claro); margin-left: 20px; text-decoration: none; }
+.enlaces a:hover { color: var(--blanco); text-decoration: underline; }
+.enlaces .entrar { background: var(--dorado); color: var(--marino); padding: 7px 16px; border-radius: 6px; font-weight: 600; }
+.enlaces .entrar:hover { text-decoration: none; background: #dcb83a; color: var(--marino); }
+.volver { color: var(--claro); text-decoration: none; }
+.volver:hover { text-decoration: underline; color: var(--blanco); }
+
+.portada { background: var(--marino); color: var(--claro); padding: 80px 6% 90px; border-bottom: 6px solid var(--dorado); }
+.portada h1 { color: var(--blanco); font-size: clamp(2.2rem, 6vw, 4rem); margin: 0 0 14px; }
+.portada p { font-size: 1.2rem; max-width: 46ch; margin: 0 0 26px; }
+.portada .boton { background: var(--dorado); color: var(--marino); text-decoration: none; display: inline-block; }
+
+.inicio { padding: 20px 6% 50px; }
+.inicio section { background: var(--blanco); border: 1px solid #c3d9ee; border-radius: 10px; padding: 24px; margin-top: 22px; }
+.inicio h2 { margin-top: 0; }
+.cuadros { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.cuadros div { background: var(--claro); border-left: 5px solid var(--dorado); border-radius: 8px; padding: 14px 16px; }
+.cuadros h3 { margin: 0 0 4px; font-size: 1.15rem; }
+.cuadros p { margin: 0; }
+.viñetas { margin: 0; padding-left: 22px; }
+.viñetas li { margin-bottom: 6px; }
+.pie { background: var(--marino); color: var(--claro); text-align: center; padding: 22px 6%; }
+.pie p { margin: 0; }
+
+/* ===== Evaluación y actividades ===== */
+.caja { border: 1px solid #c3d9ee; border-radius: 10px; padding: 18px; margin-bottom: 22px; background: var(--claro); }
+.caja h3 { margin-top: 0; }
+textarea { width: 100%; padding: 10px 12px; margin-top: 6px; border: 1px solid var(--azul); border-radius: 8px; font-size: 1rem; font-family: inherit; }
+.detalle { flex-basis: 100%; overflow-x: auto; }
+td input[type="text"] { width: 100%; min-width: 170px; margin: 0; padding: 6px 8px; }
+.lista input[type="file"] { width: auto; margin: 0; padding: 4px; max-width: 220px; }
+#finalizar, #reabrir { margin-right: 8px; }

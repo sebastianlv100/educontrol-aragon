@@ -3,40 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EDUCONTROL – FES Aragón</title>
+  <title>FES Aragón</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="barra">
-    <strong>EDUCONTROL</strong>
-    <span>Sistema de gestión escolar · FES Aragón, UNAM</span>
+    <strong id="nombreBarra"></strong>
+    <nav class="enlaces">
+      <a href="#niveles">Niveles</a>
+      <a href="#ofrece">Qué ofrecemos</a>
+      <a href="#colegiaturas">Colegiaturas</a>
+      <a href="#contacto">Contacto</a>
+      <a class="entrar" href="login.html">Iniciar sesión</a>
+    </nav>
   </header>
 
-  <main>
-    <form class="login" id="formLogin" novalidate>
-      <h1>Iniciar sesión</h1>
-      <p>Elige cómo vas a entrar.</p>
+  <section class="portada">
+    <h1 id="nombrePortada"></h1>
+    <p id="lema"></p>
+    <a class="boton" href="#contacto">Contáctanos</a>
+  </section>
 
-      <div class="roles" id="roles">
-        <button type="button" data-rol="alumno" class="activo">Alumno</button>
-        <button type="button" data-rol="profesor">Profesor</button>
-        <button type="button" data-rol="admin">Administración</button>
+  <main class="inicio">
+    <section id="niveles">
+      <h2>Con qué cuenta la facultad</h2>
+      <div class="cuadros" id="cuadroNiveles"></div>
+    </section>
+
+    <section id="ofrece">
+      <h2>Qué ofrece la facultad</h2>
+      <ul class="viñetas" id="listaOfrece"></ul>
+    </section>
+
+    <section id="colegiaturas">
+      <h2>Colegiatura y costos</h2>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Concepto</th><th>Costo</th></tr></thead>
+          <tbody id="tablaPrecios"></tbody>
+        </table>
       </div>
+    </section>
 
-      <label for="usuario">Usuario</label>
-      <input id="usuario" type="text" autocomplete="off">
-
-      <label for="clave">Contraseña</label>
-      <input id="clave" type="password">
-
-      <p class="error" id="error"></p>
-      <button class="boton" type="submit">Entrar</button>
-
-      <div class="ayuda" id="ayuda"></div>
-    </form>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="cuadros" id="cuadroContacto"></div>
+    </section>
   </main>
 
+  <footer class="pie"><p id="pie"></p></footer>
+
   <script src="datos.js"></script>
-  <script src="login.js"></script>
+  <script>
+    // Llena la página con los datos de ESCUELA (datos.js)
+    document.title = ESCUELA.nombre;
+    document.getElementById("nombreBarra").textContent = ESCUELA.nombre;
+    document.getElementById("nombrePortada").textContent = ESCUELA.nombre;
+    document.getElementById("lema").textContent = ESCUELA.lema;
+    document.getElementById("pie").textContent = ESCUELA.nombre + " · Sistema EDUCONTROL";
+
+    ESCUELA.niveles.forEach(function (n) {
+      document.getElementById("cuadroNiveles").innerHTML +=
+        "<div><h3>" + n.nombre + "</h3><p>" + n.detalle + "</p></div>";
+    });
+
+    ESCUELA.costos.forEach(function (c) {
+      document.getElementById("tablaPrecios").innerHTML += "<tr><td>" + c.concepto + "</td><td>" + c.costo + "</td></tr>";
+    });
+
+    ESCUELA.ofrece.forEach(function (texto) {
+      document.getElementById("listaOfrece").innerHTML += "<li>" + texto + "</li>";
+    });
+
+    const c = ESCUELA.contacto;
+    document.getElementById("cuadroContacto").innerHTML =
+      "<div><h3>Dirección</h3><p>" + c.direccion + "</p></div>" +
+      '<div><h3>Sitio web</h3><p><a href="' + c.sitio + '">' + c.sitio.replace("https://", "") + "</a></p></div>" +
+      "<div><h3>Correo de orientación vocacional</h3><p>" + c.correo + "</p></div>";
+  </script>
 </body>
 </html>

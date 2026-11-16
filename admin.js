@@ -49,7 +49,6 @@ function nombreAlumno(cuenta) {
 // ===== 4. Resumen =====
 function dibujarResumen() {
   const t = totalesConta();
-  const pendientes = TAREAS.filter(function (x) { return !x.entregada; }).length;
   document.getElementById("tarjetasResumen").innerHTML =
     "<div><strong>" + LISTA_ALUMNOS.length + "</strong>Alumnos en el grupo</div>" +
     "<div><strong>" + MATERIAS.length + "</strong>Materias</div>" +
@@ -61,9 +60,8 @@ function dibujarResumen() {
 
 // ===== 5. Alumnos =====
 function promedioAlumno(a) {
-  const notas = [a.p1, a.p2, a.p3].filter(function (n) { return n !== null; });
-  if (notas.length === 0) return "—";
-  return (notas.reduce(function (x, y) { return x + y; }, 0) / notas.length).toFixed(1);
+  const n = notaVigente(a.cuenta);
+  return n === null ? "—" : n.toFixed(1);
 }
 
 function asistenciaAlumno(cuenta) {

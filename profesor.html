@@ -14,20 +14,63 @@
   </header>
 
   <nav class="pestanas" id="pestanas">
-    <button data-panel="horario" class="activa">Mi horario</button>
+    <button data-panel="horario" class="activa">Horario</button>
+    <button data-panel="evaluacion">Evaluación</button>
     <button data-panel="asistencia">Pasar lista</button>
-    <button data-panel="calificaciones">Calificaciones</button>
-    <button data-panel="tareas">Dejar tareas</button>
     <button data-panel="reservas">Reservaciones</button>
   </nav>
 
   <main>
     <section class="panel activo" id="horario">
-      <h2>Mi horario · Diseño Lógico, grupo 1301</h2>
+      <h2>Mi horario · Diseño Lógico</h2>
       <div class="tabla-caja">
         <table>
-          <thead><tr><th>Día</th><th>Hora</th><th>Salón</th></tr></thead>
+          <thead><tr><th>Día</th><th>Hora</th><th>Grupo</th><th>Salón</th></tr></thead>
           <tbody id="tablaHorario"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="evaluacion">
+      <h2>Evaluación · Diseño Lógico, grupo 1301</h2>
+
+      <div class="caja">
+        <h3>Porcentaje de cada parte</h3>
+        <div class="formulario">
+          <div><label for="pesoTareas">Tareas</label><select id="pesoTareas"></select></div>
+          <div><label for="pesoExamenes">Exámenes</label><select id="pesoExamenes"></select></div>
+          <div><label for="pesoProyecto">Proyecto</label><select id="pesoProyecto"></select></div>
+          <div><label for="puntosExtra">Puntos extra (máximo)</label><select id="puntosExtra"></select></div>
+        </div>
+        <p class="mensaje" id="sumaPesos"></p>
+        <button class="boton" id="guardarEval">Guardar evaluación</button>
+        <p class="mensaje" id="msgEval"></p>
+      </div>
+
+      <h3>Nueva actividad</h3>
+      <form class="formulario" id="formTarea" novalidate>
+        <div><label for="tituloT">Nombre</label><input type="text" id="tituloT"></div>
+        <div><label for="tipoT">Tipo</label>
+          <select id="tipoT"><option>Tarea</option><option>Examen</option><option>Proyecto</option><option>Puntos extra</option></select></div>
+        <div><label for="fechaT">Fecha de entrega</label><input type="date" id="fechaT"></div>
+        <div><label for="instrT">Instrucciones</label><textarea id="instrT" rows="3"></textarea></div>
+        <div><label for="archivosT">Archivos (opcional)</label><input type="file" id="archivosT" multiple></div>
+        <button class="boton" type="submit">Publicar</button>
+      </form>
+      <p class="mensaje" id="msgTarea"></p>
+
+      <h3>Actividades</h3>
+      <ul class="lista" id="listaTareas"></ul>
+
+      <h3>Cierre del ciclo</h3>
+      <p>Al finalizar el ciclo, el sistema calcula la calificación final de cada alumno con los porcentajes de arriba.</p>
+      <button class="boton" id="finalizar">Finalizar ciclo</button>
+      <button class="boton" id="reabrir">Reabrir ciclo</button>
+      <p class="mensaje" id="msgCiclo"></p>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Alumno</th><th>Calificación final</th><th>Resultado</th></tr></thead>
+          <tbody id="tablaFinal"></tbody>
         </table>
       </div>
     </section>
@@ -45,31 +88,6 @@
       </div>
       <p class="mensaje" id="msgLista"></p>
       <button class="boton" id="guardarLista">Guardar asistencia</button>
-    </section>
-
-    <section class="panel" id="calificaciones">
-      <h2>Calificaciones</h2>
-      <p>Escribe una nota del 0 al 10. Se guarda sola al salir de la casilla.</p>
-      <div class="tabla-caja">
-        <table>
-          <thead><tr><th>Alumno</th><th>Parcial 1</th><th>Parcial 2</th><th>Parcial 3</th></tr></thead>
-          <tbody id="tablaNotas"></tbody>
-        </table>
-      </div>
-      <p class="mensaje" id="msgNotas"></p>
-    </section>
-
-    <section class="panel" id="tareas">
-      <h2>Dejar tarea o proyecto</h2>
-      <form class="formulario" id="formTarea" novalidate>
-        <div><label for="tituloTarea">Título</label><input type="text" id="tituloTarea"></div>
-        <div><label for="tipoTarea">Tipo</label>
-          <select id="tipoTarea"><option>Tarea</option><option>Proyecto</option></select></div>
-        <div><label for="fechaTarea">Fecha de entrega</label><input type="date" id="fechaTarea"></div>
-        <button class="boton" type="submit">Publicar</button>
-      </form>
-      <p class="mensaje" id="msgTarea"></p>
-      <ul class="lista" id="listaTareas"></ul>
     </section>
 
     <section class="panel" id="reservas">
