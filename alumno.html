@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alumno – EDUCONTROL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>EDUCONTROL · Alumno</strong>
+    <span id="saludo"></span>
+    <button id="salir">Cerrar sesión</button>
+  </header>
+
+  <nav class="pestanas" id="pestanas">
+    <button data-panel="resumen" class="activa">Resumen</button>
+    <button data-panel="horario">Horario</button>
+    <button data-panel="tareas">Tareas y proyectos</button>
+    <button data-panel="calificaciones">Calificaciones</button>
+    <button data-panel="inscripcion">Inscripción</button>
+  </nav>
+
+  <main>
+    <section class="panel activo" id="resumen">
+      <h2>Mi resumen</h2>
+      <div class="tarjetas" id="tarjetasResumen"></div>
+    </section>
+
+    <section class="panel" id="horario">
+      <h2>Mi horario escolar</h2>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Día</th><th>Hora</th><th>Materia</th><th>Salón</th></tr></thead>
+          <tbody id="tablaHorario"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="tareas">
+      <h2>Tareas y proyectos</h2>
+      <ul class="lista" id="listaTareas"></ul>
+    </section>
+
+    <section class="panel" id="calificaciones">
+      <h2>Mis calificaciones</h2>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Materia</th><th>Parcial 1</th><th>Parcial 2</th><th>Parcial 3</th><th>Promedio</th></tr></thead>
+          <tbody id="tablaCalif"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="inscripcion">
+      <h2>Inscripción</h2>
+      <div class="tarjetas" id="tarjetasInsc"></div>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Materia</th><th>Profesor</th></tr></thead>
+          <tbody id="tablaInsc"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="datos.js"></script>
+  <script src="alumno.js"></script>
+</body>
+</html>

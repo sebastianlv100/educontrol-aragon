@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDUCONTROL – FES Aragón</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>EDUCONTROL</strong>
+    <span>Sistema de gestión escolar · FES Aragón, UNAM</span>
+  </header>
+
+  <main>
+    <form class="login" id="formLogin" novalidate>
+      <h1>Iniciar sesión</h1>
+      <p>Elige cómo vas a entrar.</p>
+
+      <div class="roles" id="roles">
+        <button type="button" data-rol="alumno" class="activo">Alumno</button>
+        <button type="button" data-rol="profesor">Profesor</button>
+        <button type="button" data-rol="admin">Administración</button>
+      </div>
+
+      <label for="usuario">Usuario</label>
+      <input id="usuario" type="text" autocomplete="off">
+
+      <label for="clave">Contraseña</label>
+      <input id="clave" type="password">
+
+      <p class="error" id="error"></p>
+      <button class="boton" type="submit">Entrar</button>
+
+      <div class="ayuda" id="ayuda"></div>
+    </form>
+  </main>
+
+  <script src="datos.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

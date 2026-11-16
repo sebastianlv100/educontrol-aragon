@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profesor – EDUCONTROL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>EDUCONTROL · Profesor</strong>
+    <span id="saludo"></span>
+    <button id="salir">Cerrar sesión</button>
+  </header>
+
+  <nav class="pestanas" id="pestanas">
+    <button data-panel="horario" class="activa">Mi horario</button>
+    <button data-panel="asistencia">Pasar lista</button>
+    <button data-panel="calificaciones">Calificaciones</button>
+    <button data-panel="tareas">Dejar tareas</button>
+    <button data-panel="reservas">Reservaciones</button>
+  </nav>
+
+  <main>
+    <section class="panel activo" id="horario">
+      <h2>Mi horario · Diseño Lógico, grupo 1301</h2>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Día</th><th>Hora</th><th>Salón</th></tr></thead>
+          <tbody id="tablaHorario"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="asistencia">
+      <h2>Pasar lista</h2>
+      <div class="formulario">
+        <div><label for="fechaLista">Fecha de la clase</label><input type="date" id="fechaLista"></div>
+      </div>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Presente</th><th>Cuenta</th><th>Alumno</th></tr></thead>
+          <tbody id="tablaLista"></tbody>
+        </table>
+      </div>
+      <p class="mensaje" id="msgLista"></p>
+      <button class="boton" id="guardarLista">Guardar asistencia</button>
+    </section>
+
+    <section class="panel" id="calificaciones">
+      <h2>Calificaciones</h2>
+      <p>Escribe una nota del 0 al 10. Se guarda sola al salir de la casilla.</p>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Alumno</th><th>Parcial 1</th><th>Parcial 2</th><th>Parcial 3</th></tr></thead>
+          <tbody id="tablaNotas"></tbody>
+        </table>
+      </div>
+      <p class="mensaje" id="msgNotas"></p>
+    </section>
+
+    <section class="panel" id="tareas">
+      <h2>Dejar tarea o proyecto</h2>
+      <form class="formulario" id="formTarea" novalidate>
+        <div><label for="tituloTarea">Título</label><input type="text" id="tituloTarea"></div>
+        <div><label for="tipoTarea">Tipo</label>
+          <select id="tipoTarea"><option>Tarea</option><option>Proyecto</option></select></div>
+        <div><label for="fechaTarea">Fecha de entrega</label><input type="date" id="fechaTarea"></div>
+        <button class="boton" type="submit">Publicar</button>
+      </form>
+      <p class="mensaje" id="msgTarea"></p>
+      <ul class="lista" id="listaTareas"></ul>
+    </section>
+
+    <section class="panel" id="reservas">
+      <h2>Reservar laboratorios, aulas y equipo</h2>
+      <form class="formulario" id="formReserva" novalidate>
+        <div><label for="recurso">Espacio o equipo</label><select id="recurso"></select></div>
+        <div><label for="fechaReserva">Fecha</label><input type="date" id="fechaReserva"></div>
+        <div><label for="horaReserva">Hora</label>
+          <select id="horaReserva">
+            <option>08:00</option><option>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option>
+          </select></div>
+        <button class="boton" type="submit">Reservar</button>
+      </form>
+      <p class="mensaje" id="msgReserva"></p>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Espacio o equipo</th><th>Fecha</th><th>Hora</th><th>Profesor</th><th>Acción</th></tr></thead>
+          <tbody id="tablaReservas"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="datos.js"></script>
+  <script src="profesor.js"></script>
+</body>
+</html>

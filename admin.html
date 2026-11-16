@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración – EDUCONTROL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>EDUCONTROL · Administración</strong>
+    <span id="saludo"></span>
+    <button id="salir">Cerrar sesión</button>
+  </header>
+
+  <nav class="pestanas" id="pestanas">
+    <button data-panel="resumen" class="activa">Resumen</button>
+    <button data-panel="alumnos">Alumnos</button>
+    <button data-panel="personal">Profesores</button>
+    <button data-panel="reservas">Reservaciones</button>
+    <button data-panel="contabilidad">Contabilidad</button>
+  </nav>
+
+  <main>
+    <section class="panel activo" id="resumen">
+      <h2>Resumen de la escuela</h2>
+      <div class="tarjetas" id="tarjetasResumen"></div>
+    </section>
+
+    <section class="panel" id="alumnos">
+      <h2>Alumnos</h2>
+      <input type="search" id="buscar" placeholder="Buscar por nombre o cuenta">
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Cuenta</th><th>Alumno</th><th>Promedio Diseño Lógico</th><th>Asistencia</th><th>Pagos pendientes</th></tr></thead>
+          <tbody id="tablaAlumnos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="personal">
+      <h2>Profesores y materias</h2>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Profesor</th><th>Materia</th><th>Salón</th></tr></thead>
+          <tbody id="tablaProfes"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="reservas">
+      <h2>Todas las reservaciones</h2>
+      <p class="mensaje" id="msgReserva"></p>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Espacio o equipo</th><th>Fecha</th><th>Hora</th><th>Profesor</th><th>Acción</th></tr></thead>
+          <tbody id="tablaReservas"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="contabilidad">
+      <h2>Contabilidad</h2>
+      <div class="tarjetas" id="tarjetasConta"></div>
+
+      <h3>Cobros a alumnos</h3>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Alumno</th><th>Concepto</th><th>Monto</th><th>Estado</th><th>Acción</th></tr></thead>
+          <tbody id="tablaPagos"></tbody>
+        </table>
+      </div>
+
+      <h3>Gastos de la escuela</h3>
+      <form class="formulario" id="formGasto" novalidate>
+        <div><label for="conceptoGasto">Concepto</label><input type="text" id="conceptoGasto"></div>
+        <div><label for="montoGasto">Monto (MXN)</label><input type="number" id="montoGasto" min="1" step="0.01"></div>
+        <button class="boton" type="submit">Registrar gasto</button>
+      </form>
+      <p class="mensaje" id="msgGasto"></p>
+      <div class="tabla-caja">
+        <table>
+          <thead><tr><th>Fecha</th><th>Concepto</th><th>Monto</th></tr></thead>
+          <tbody id="tablaGastos"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="datos.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
